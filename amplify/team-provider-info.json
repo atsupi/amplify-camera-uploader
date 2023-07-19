@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifycamerauploade-dev-225533-authRole",
+      "UnauthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-225533-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-225533-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-amplifycamerauploade-dev-225533-deployment",
+      "UnauthRoleName": "amplify-amplifycamerauploade-dev-225533-unauthRole",
+      "StackName": "amplify-amplifycamerauploade-dev-225533",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:074682543290:stack/amplify-amplifycamerauploade-dev-225533/ebff09f0-263b-11ee-a2c1-068402439de3",
+      "AmplifyAppId": "d3adbu4hc3avp4"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3adbu4hc3avp4",
+          "type": "manual"
+        }
+      },
+      "auth": {
+        "amplifycamerauploadef15e6c68": {}
+      }
+    }
+  }
+}

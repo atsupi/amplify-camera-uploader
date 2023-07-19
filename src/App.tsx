@@ -19,6 +19,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <input id="upload" type="file" name="image" accept="image/*" capture></input>
     </div>
   );
 }
