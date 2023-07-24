@@ -1,0 +1,10 @@
+{
+  "resourceName": "dbrekognition20230724",
+  "tableName": "dbrekognition20230724",
+  "partitionKey": {
+    "fieldName": "key",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

@@ -1,0 +1,14 @@
+{
+  "resourceName": "cameraimage20230721",
+  "policyUUID": "ef10e6ee",
+  "bucketName": "cameraimage20230721",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Triggeredd125ea",
+  "groupAccess": {}
+}
