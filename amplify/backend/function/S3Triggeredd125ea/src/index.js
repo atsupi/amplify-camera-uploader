@@ -51,6 +51,8 @@ const saveData = async (key, param1, param2, param3) => {
         "param1": { "S" : param1 },
         "param2": { "S" : param2 },
         "param3": { "S" : param3 },
+        "date": { "S" : new Date().getTime().toString() },
+        "type": { "S" : "calibration" },
       },
     })
     const output = await dbClient.send(command)
