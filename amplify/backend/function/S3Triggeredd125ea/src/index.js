@@ -26,18 +26,32 @@ function isFloat(value) {
   ) ? true : false;
 }
 
+function convert(text) {
+  let result = "";
+  for (let i = 0; i < text.length; i++) {
+    const char = text.charAt(i);
+    if (char !== ' ') {
+      result += char;
+    }
+  }
+  return result;
+}
+
 const extractResponse = (res) => {
   const result = [];
   res.TextDetections.map((text) => {
-    if (text.Type === "LINE" && isFloat(Number(text.DetectedText))) {
-      console.log("extract", text.DetectedText);
-      result.push(text.DetectedText);
+    if (text.Type === "LINE") {
+      const detectedText = convert(text.DetectedText);
+      if (isFloat(Number(detectedText)) || Number(detectedText) > 999 ) {
+        console.log("extract", text.DetectedText, detectedText);
+        result.push(detectedText);
+      }
     }
   });
   return (result);
 };
 
-const config = {}
+const config = {};
 const dbClient = new DynamoDBClient(config);
 const documentClient = DynamoDBDocumentClient.from(dbClient);
 
@@ -54,11 +68,11 @@ const saveData = async (key, param1, param2, param3) => {
         "date": { "S" : new Date().getTime().toString() },
         "type": { "S" : "calibration" },
       },
-    })
-    const output = await dbClient.send(command)
-    console.log('SUCCESS (put item):', output)
+    });
+    const output = await dbClient.send(command);
+    console.log('SUCCESS (put item):', output);
   } catch (err) {
-    console.log('ERROR:', err)
+    console.log('ERROR:', err);
   }
 }
 
@@ -77,7 +91,7 @@ export const handler = async function (event) {
     },
     Filters: { // DetectTextFilters
       WordFilter: { // DetectionFilter
-        MinConfidence: 80,
+        MinConfidence: 70,
       },
     },
   };
@@ -89,10 +103,10 @@ export const handler = async function (event) {
   console.log("result", result);
 
   if (result.length == 3) {
-    console.log("saveData", "3 params")
+    console.log("saveData", "3 params");
     saveData(key, result[0], result[1], result[2]);
   } else {
-    console.log("saveData", "0 params")
+    console.log("saveData", "0 params");
     saveData(key, 0, 0, 0);
   }   
 };
