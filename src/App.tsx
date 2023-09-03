@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '@aws-amplify/ui-react/styles.css'; 
 import './App.css';
 import { Authenticator, Button } from '@aws-amplify/ui-react';
 import { Storage } from 'aws-amplify';
 
 function App() {
+  const [percentage, setPercentage] = useState("0%");
   const ChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event);
     console.log(event.target.value);
@@ -22,6 +23,7 @@ function App() {
         progressCallback(progress) {
           const percentage = progress.loaded * 100 / progress.total;
           console.log(`progress: ${percentage}%`);
+          setPercentage(`${percentage}%`);
         }
       }).then((result) => {
         console.log(`completed upload: ${result.key}`);
@@ -44,6 +46,7 @@ function App() {
             <Button onClick={signOut}>Sign Out</Button>
             <div className="upload">
               <input id="upload" type="file" name="image" accept="image/*" capture onChange={ChangeInput}></input>
+              <p>{percentage}</p>
             </div>
           </>
         )}
