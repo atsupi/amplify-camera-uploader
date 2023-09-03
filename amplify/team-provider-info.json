@@ -18,7 +18,7 @@
       "function": {
         "S3Triggeredd125ea": {
           "deploymentBucketName": "amplify-amplifycamerauploade-dev-02324-deployment",
-          "s3Key": "amplify-builds/S3Triggeredd125ea-79635a4b306631305a44-build.zip"
+          "s3Key": "amplify-builds/S3Triggeredd125ea-78386b674a6167633846-build.zip"
         }
       },
       "storage": {

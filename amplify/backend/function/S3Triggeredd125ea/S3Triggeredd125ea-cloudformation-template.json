@@ -94,7 +94,7 @@
           ]
         },
         "Runtime": "nodejs18.x",
-        "Timeout": 25,
+        "Timeout": 325,
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"

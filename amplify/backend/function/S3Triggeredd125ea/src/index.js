@@ -71,6 +71,7 @@ const saveData = async (key, param1, param2, param3) => {
     });
     const output = await dbClient.send(command);
     console.log('SUCCESS (put item):', output);
+    return output;
   } catch (err) {
     console.log('ERROR:', err);
   }

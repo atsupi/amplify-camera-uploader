@@ -14,7 +14,6 @@ function App() {
       if (filename === "image.jpg") {
         const id = new Date().getTime().toString();
         filename = "image" + id + ".jpg";
-        event.target.value = filename;
       }
       console.log("filename", filename);
       Storage.put("input/"+filename, event.target.files[0], {
