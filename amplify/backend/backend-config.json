@@ -43,7 +43,13 @@
       "service": "Lambda"
     }
   },
-  "hosting": {},
+  "hosting": {
+    "amplifyhosting": {
+      "lastPushTimeStamp": "2023-09-03T14:32:58.930Z",
+      "service": "amplifyhosting",
+      "type": "cicd"
+    }
+  },
   "parameters": {
     "AMPLIFY_function_S3Triggeredd125ea_deploymentBucketName": {
       "usedBy": [
@@ -58,6 +64,22 @@
         {
           "category": "function",
           "resourceName": "S3Triggeredd125ea"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }

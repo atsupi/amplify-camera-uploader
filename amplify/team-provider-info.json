@@ -24,6 +24,12 @@
       "storage": {
         "cameraimage20230721": {},
         "dbrekognition20230724": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dxvxp5cqroi6t",
+          "type": "cicd"
+        }
       }
     }
   }
