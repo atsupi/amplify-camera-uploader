@@ -13,6 +13,7 @@ function App() {
       if (filename === "image.jpg") {
         const id = new Date().getTime().toString();
         filename = "image" + id + ".jpg";
+        event.target.value = filename;
       }
       console.log("filename", filename);
       Storage.put("input/"+filename, event.target.files[0], {
@@ -24,6 +25,7 @@ function App() {
         }
       }).then((result) => {
         console.log(`completed upload: ${result.key}`);
+        event.target.value = "";
       });  
     }
   };
