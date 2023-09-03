@@ -127,5 +127,6 @@ export const handler = async function (event) {
   } else {
     console.log("saveData", "0 params");
     saveData(key, 0, 0, 0);
+    loadData(key);
   }   
 };
