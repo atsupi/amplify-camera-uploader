@@ -45,4 +45,4 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 
-*.zip
+/*.zip
