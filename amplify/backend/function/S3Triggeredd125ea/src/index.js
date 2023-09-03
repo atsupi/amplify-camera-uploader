@@ -8,7 +8,7 @@ Amplify Params - DO NOT EDIT */
 
 import { DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
 import { RekognitionClient } from "@aws-sdk/client-rekognition";
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb'
+import { DynamoDBClient, PutItemCommand, GetItemCommand } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb'
 
 // Set the AWS Region.
@@ -77,6 +77,23 @@ const saveData = async (key, param1, param2, param3) => {
   }
 }
 
+const loadData = async (key) => {
+  console.log("loadData", process.env.STORAGE_DBREKOGNITION20230724_NAME);
+  try {
+    const command = new GetItemCommand({
+      TableName: process.env.STORAGE_DBREKOGNITION20230724_NAME,
+      Key: {
+        "key": { "S" : key },
+      },
+    });
+    const output = await dbClient.send(command);
+    console.log('SUCCESS (get item):', output);
+    return output;
+  } catch (err) {
+    console.log('ERROR:', err);
+  }
+}
+
 export const handler = async function (event) {
   console.log('Received S3 event:', JSON.stringify(event, null, 2));
   const bucket = event.Records[0].s3.bucket.name;
@@ -106,6 +123,7 @@ export const handler = async function (event) {
   if (result.length == 3) {
     console.log("saveData", "3 params");
     saveData(key, result[0], result[1], result[2]);
+    loadData(key);
   } else {
     console.log("saveData", "0 params");
     saveData(key, 0, 0, 0);
