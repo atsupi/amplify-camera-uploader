@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "storage": {
+      "dbrekognition20230724dev": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

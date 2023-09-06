@@ -1,6 +1,6 @@
 {
   "resourceName": "cameraimage20230721",
-  "policyUUID": "ef10e6ee",
+  "policyUUID": "902c5942",
   "bucketName": "cameraimage20230721",
   "storageAccess": "auth",
   "guestAccess": [],
@@ -9,6 +9,6 @@
     "READ",
     "DELETE"
   ],
-  "triggerFunction": "S3Triggeredd125ea",
+  "triggerFunction": "S3Triggerd6c0e675",
   "groupAccess": {}
 }

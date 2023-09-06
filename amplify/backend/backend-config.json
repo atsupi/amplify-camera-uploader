@@ -1,6 +1,6 @@
 {
   "auth": {
-    "amplifycamerauploadef15e6c68": {
+    "amplifycamerauploadef7ad621d": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -26,7 +26,7 @@
     }
   },
   "function": {
-    "S3Triggeredd125ea": {
+    "S3Triggerd6c0e675": {
       "build": true,
       "dependsOn": [
         {
@@ -36,50 +36,75 @@
             "StreamArn"
           ],
           "category": "storage",
-          "resourceName": "dbrekognition20230724"
+          "resourceName": "dbrekognition20230724dev"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
-  "hosting": {
-    "amplifyhosting": {
-      "lastPushTimeStamp": "2023-09-03T14:32:58.930Z",
-      "service": "amplifyhosting",
-      "type": "cicd"
-    }
-  },
   "parameters": {
-    "AMPLIFY_function_S3Triggeredd125ea_deploymentBucketName": {
+    "AMPLIFY_function_S3Triggerd6c0e675_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "S3Triggeredd125ea"
+          "resourceName": "S3Triggerd6c0e675"
         }
       ]
     },
-    "AMPLIFY_function_S3Triggeredd125ea_s3Key": {
+    "AMPLIFY_function_S3Triggerd6c0e675_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "S3Triggeredd125ea"
+          "resourceName": "S3Triggerd6c0e675"
         }
       ]
     },
-    "AMPLIFY_hosting_amplifyhosting_appId": {
+    "AMPLIFY_storage_dbrekognition20230724dev_arn": {
       "usedBy": [
         {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
         }
       ]
     },
-    "AMPLIFY_hosting_amplifyhosting_type": {
+    "AMPLIFY_storage_dbrekognition20230724dev_partitionKeyName": {
       "usedBy": [
         {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_dbrekognition20230724dev_partitionKeyType": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_dbrekognition20230724dev_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_dbrekognition20230724dev_streamArn": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
+        }
+      ]
+    },
+    "AMPLIFY_storage_dbrekognition20230724dev_tableName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "dbrekognition20230724dev"
         }
       ]
     }
@@ -94,15 +119,17 @@
             "LambdaExecutionRole"
           ],
           "category": "function",
-          "resourceName": "S3Triggeredd125ea"
+          "resourceName": "S3Triggerd6c0e675"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "S3"
     },
-    "dbrekognition20230724": {
+    "dbrekognition20230724dev": {
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "service": "DynamoDB"
+      "service": "DynamoDB",
+      "serviceType": "imported"
     }
   }
 }

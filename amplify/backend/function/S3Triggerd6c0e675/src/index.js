@@ -1,9 +1,9 @@
 /* Amplify Params - DO NOT EDIT
 	ENV
 	REGION
-	STORAGE_DBREKOGNITION20230724_ARN
-	STORAGE_DBREKOGNITION20230724_NAME
-	STORAGE_DBREKOGNITION20230724_STREAMARN
+	STORAGE_DBREKOGNITION20230724DEV_ARN
+	STORAGE_DBREKOGNITION20230724DEV_NAME
+	STORAGE_DBREKOGNITION20230724DEV_STREAMARN
 Amplify Params - DO NOT EDIT */
 
 import { DetectTextCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
@@ -56,10 +56,10 @@ const dbClient = new DynamoDBClient(config);
 const documentClient = DynamoDBDocumentClient.from(dbClient);
 
 const saveData = async (key, param1, param2, param3) => {
-  console.log("saveData", process.env.STORAGE_DBREKOGNITION20230724_NAME);
+  console.log("saveData", process.env.STORAGE_DBREKOGNITION20230724DEV_NAME);
   try {
     const command = new PutItemCommand({
-      TableName: process.env.STORAGE_DBREKOGNITION20230724_NAME,
+      TableName: process.env.STORAGE_DBREKOGNITION20230724DEV_NAME,
       Item: {
         "key": { "S" : key },
         "param1": { "S" : param1 },
@@ -78,10 +78,10 @@ const saveData = async (key, param1, param2, param3) => {
 }
 
 const loadData = async (key) => {
-  console.log("loadData", process.env.STORAGE_DBREKOGNITION20230724_NAME);
+  console.log("loadData", process.env.STORAGE_DBREKOGNITION20230724DEV_NAME);
   try {
     const command = new GetItemCommand({
-      TableName: process.env.STORAGE_DBREKOGNITION20230724_NAME,
+      TableName: process.env.STORAGE_DBREKOGNITION20230724DEV_NAME,
       Key: {
         "key": { "S" : key },
       },

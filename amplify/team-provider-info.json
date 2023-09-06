@@ -1,34 +1,35 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifycamerauploade-dev-02324-authRole",
-      "UnauthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-02324-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-02324-authRole",
+      "AuthRoleName": "amplify-amplifycamerauploade-dev-234755-authRole",
+      "UnauthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-234755-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::074682543290:role/amplify-amplifycamerauploade-dev-234755-authRole",
       "Region": "ap-northeast-1",
-      "DeploymentBucketName": "amplify-amplifycamerauploade-dev-02324-deployment",
-      "UnauthRoleName": "amplify-amplifycamerauploade-dev-02324-unauthRole",
-      "StackName": "amplify-amplifycamerauploade-dev-02324",
-      "StackId": "arn:aws:cloudformation:ap-northeast-1:074682543290:stack/amplify-amplifycamerauploade-dev-02324/86a8d770-27da-11ee-9d47-0add41c3b633",
-      "AmplifyAppId": "dxvxp5cqroi6t"
+      "DeploymentBucketName": "amplify-amplifycamerauploade-dev-234755-deployment",
+      "UnauthRoleName": "amplify-amplifycamerauploade-dev-234755-unauthRole",
+      "StackName": "amplify-amplifycamerauploade-dev-234755",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:074682543290:stack/amplify-amplifycamerauploade-dev-234755/084a9e60-4b32-11ee-bc71-0e7f6ea0e96d",
+      "AmplifyAppId": "d16z88r7vjrzey"
     },
     "categories": {
       "auth": {
-        "amplifycamerauploadef15e6c68": {}
-      },
-      "function": {
-        "S3Triggeredd125ea": {
-          "deploymentBucketName": "amplify-amplifycamerauploade-dev-02324-deployment",
-          "s3Key": "amplify-builds/S3Triggeredd125ea-78386b674a6167633846-build.zip"
-        }
+        "amplifycamerauploadef7ad621d": {}
       },
       "storage": {
-        "cameraimage20230721": {},
-        "dbrekognition20230724": {}
+        "dbrekognition20230724dev": {
+          "tableName": "dbrekognition20230724-dev",
+          "region": "ap-northeast-1",
+          "arn": "arn:aws:dynamodb:ap-northeast-1:074682543290:table/dbrekognition20230724-dev",
+          "streamArn": "arn:aws:dynamodb:ap-northeast-1:074682543290:table/dbrekognition20230724-dev/stream/2023-07-24T14:12:04.029",
+          "partitionKeyName": "key",
+          "partitionKeyType": "S"
+        },
+        "cameraimage20230721": {}
       },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "dxvxp5cqroi6t",
-          "type": "cicd"
+      "function": {
+        "S3Triggerd6c0e675": {
+          "deploymentBucketName": "amplify-amplifycamerauploade-dev-234755-deployment",
+          "s3Key": "amplify-builds/S3Triggerd6c0e675-4a4b61332b4935354446-build.zip"
         }
       }
     }

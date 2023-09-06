@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "amplifycamerauploadef15e6c68": {
+    "amplifycamerauploadef7ad621d": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -11,7 +11,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "S3Triggeredd125ea": {
+    "S3Triggerd6c0e675": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -23,14 +23,6 @@ export type AmplifyDependentResourcesAttributes = {
     "cameraimage20230721": {
       "BucketName": "string",
       "Region": "string"
-    },
-    "dbrekognition20230724": {
-      "Arn": "string",
-      "Name": "string",
-      "PartitionKeyName": "string",
-      "PartitionKeyType": "string",
-      "Region": "string",
-      "StreamArn": "string"
     }
   }
 }

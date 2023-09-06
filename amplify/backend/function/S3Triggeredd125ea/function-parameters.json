@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "storage": {
-      "dbrekognition20230724": [
-        "create"
-      ]
-    }
-  }
-}

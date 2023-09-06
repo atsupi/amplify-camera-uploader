@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "amplifycamerauploadef15e6c68_identitypool_f15e6c68",
+    "identityPoolName": "amplifycamerauploadef7ad621d_identitypool_f7ad621d",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "ampliff15e6c68",
-    "userPoolName": "amplifycamerauploadef15e6c68_userpool_f15e6c68",
+    "resourceNameTruncated": "ampliff7ad621d",
+    "userPoolName": "amplifycamerauploadef7ad621d_userpool_f7ad621d",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "ampliff15e6c68_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ampliff7ad621d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "f15e6c68",
-    "resourceName": "amplifycamerauploadef15e6c68",
+    "sharedId": "f7ad621d",
+    "resourceName": "amplifycamerauploadef7ad621d",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "userPoolGroupList": [],

@@ -5,27 +5,23 @@
     "env": {
       "Type": "String"
     },
+    "storagedbrekognition20230724devName": {
+      "Type": "String",
+      "Default": "storagedbrekognition20230724devName"
+    },
+    "storagedbrekognition20230724devArn": {
+      "Type": "String",
+      "Default": "storagedbrekognition20230724devArn"
+    },
+    "storagedbrekognition20230724devStreamArn": {
+      "Type": "String",
+      "Default": "storagedbrekognition20230724devStreamArn"
+    },
     "deploymentBucketName": {
       "Type": "String"
     },
     "s3Key": {
       "Type": "String"
-    },
-    "storagecameraimage20230721BucketName": {
-      "Type": "String",
-      "Default": "storagecameraimage20230721BucketName"
-    },
-    "storagedbrekognition20230724Name": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724Name"
-    },
-    "storagedbrekognition20230724Arn": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724Arn"
-    },
-    "storagedbrekognition20230724StreamArn": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724StreamArn"
     }
   },
   "Conditions": {
@@ -50,12 +46,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "S3Triggeredd125ea",
+            "S3Triggerd6c0e675",
             {
               "Fn::Join": [
                 "",
                 [
-                  "S3Triggeredd125ea",
+                  "S3Triggerd6c0e675",
                   "-",
                   {
                     "Ref": "env"
@@ -73,17 +69,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_CAMERAIMAGE20230721_BUCKETNAME": {
-              "Ref": "storagecameraimage20230721BucketName"
+            "STORAGE_DBREKOGNITION20230724DEV_NAME": {
+              "Ref": "storagedbrekognition20230724devName"
             },
-            "STORAGE_DBREKOGNITION20230724_NAME": {
-              "Ref": "storagedbrekognition20230724Name"
+            "STORAGE_DBREKOGNITION20230724DEV_ARN": {
+              "Ref": "storagedbrekognition20230724devArn"
             },
-            "STORAGE_DBREKOGNITION20230724_ARN": {
-              "Ref": "storagedbrekognition20230724Arn"
-            },
-            "STORAGE_DBREKOGNITION20230724_STREAMARN": {
-              "Ref": "storagedbrekognition20230724StreamArn"
+            "STORAGE_DBREKOGNITION20230724DEV_STREAMARN": {
+              "Ref": "storagedbrekognition20230724devStreamArn"
             }
           }
         },
@@ -94,7 +87,7 @@
           ]
         },
         "Runtime": "nodejs18.x",
-        "Timeout": 325,
+        "Timeout": 25,
         "Code": {
           "S3Bucket": {
             "Ref": "deploymentBucketName"
@@ -111,12 +104,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "S3Triggeredd125eaLambdaRoleedd125ea",
+            "S3Triggerd6c0e675LambdaRoled6c0e675",
             {
               "Fn::Join": [
                 "",
                 [
-                  "S3Triggeredd125eaLambdaRoleedd125ea",
+                  "S3Triggerd6c0e675LambdaRoled6c0e675",
                   "-",
                   {
                     "Ref": "env"
@@ -207,18 +200,27 @@
               "Action": [
                 "dynamodb:Put*",
                 "dynamodb:Create*",
-                "dynamodb:BatchWriteItem"
+                "dynamodb:BatchWriteItem",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:Delete*"
               ],
               "Resource": [
                 {
-                  "Ref": "storagedbrekognition20230724Arn"
+                  "Ref": "storagedbrekognition20230724devArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagedbrekognition20230724Arn"
+                        "Ref": "storagedbrekognition20230724devArn"
                       },
                       "index/*"
                     ]
