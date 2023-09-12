@@ -14,8 +14,7 @@ export const createMeasData = /* GraphQL */ `
       param1
       param2
       param3
-      createdAt
-      updatedAt
+      owner
       __typename
     }
   }
@@ -33,8 +32,7 @@ export const updateMeasData = /* GraphQL */ `
       param1
       param2
       param3
-      createdAt
-      updatedAt
+      owner
       __typename
     }
   }
@@ -52,8 +50,7 @@ export const deleteMeasData = /* GraphQL */ `
       param1
       param2
       param3
-      createdAt
-      updatedAt
+      owner
       __typename
     }
   }

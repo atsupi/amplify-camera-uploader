@@ -29,7 +29,7 @@
       "function": {
         "S3Triggerd6c0e675": {
           "deploymentBucketName": "amplify-amplifycamerauploade-dev-234755-deployment",
-          "s3Key": "amplify-builds/S3Triggerd6c0e675-74526f6372364b636d4f-build.zip"
+          "s3Key": "amplify-builds/S3Triggerd6c0e675-666d6d512f637a38744b-build.zip"
         }
       },
       "api": {

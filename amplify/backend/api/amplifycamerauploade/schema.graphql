@@ -2,7 +2,15 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type MeasData @model {
+type MeasData  
+  @model (
+    timestamps: null
+  )
+  @auth(rules: [
+    {allow: owner, ownerField:"owner", provider: userPools, operations:[read, create, delete]}
+    {allow: private, provider: userPools, operations:[read, delete]}
+  ])
+{
   id: ID!
   date: String!
   type: String!

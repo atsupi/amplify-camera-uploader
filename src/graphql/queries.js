@@ -11,8 +11,7 @@ export const getMeasData = /* GraphQL */ `
       param1
       param2
       param3
-      createdAt
-      updatedAt
+      owner
       __typename
     }
   }
@@ -32,8 +31,7 @@ export const listMeasData = /* GraphQL */ `
         param1
         param2
         param3
-        createdAt
-        updatedAt
+        owner
         __typename
       }
       nextToken
