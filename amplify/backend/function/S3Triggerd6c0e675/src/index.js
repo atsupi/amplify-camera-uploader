@@ -62,32 +62,36 @@ const documentClient = DynamoDBDocumentClient.from(dbClient);
 const saveData = async (key, param1, param2, param3) => {
   console.log("saveData", process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME);
   try {
+    const id = new Date().getTime().toString();
     const command = new PutItemCommand({
       TableName: process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME,
       Item: {
+        "id": { "S" : id },
         "key": { "S" : key },
         "param1": { "S" : param1 },
         "param2": { "S" : param2 },
         "param3": { "S" : param3 },
-        "date": { "S" : new Date().getTime().toString() },
+        "date": { "S" : id },
         "type": { "S" : "calibration" },
       },
     });
     const output = await dbClient.send(command);
     console.log('SUCCESS (put item):', output);
-    return output;
+    return id;
   } catch (err) {
     console.log('ERROR:', err);
   }
+  return null;
 }
 
-const loadData = async (key) => {
-  console.log("loadData", process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME);
+const loadData = async (id) => {
+  console.log("loadData", process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME, id);
+  if (id == null) return;
   try {
     const command = new GetItemCommand({
       TableName: process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME,
       Key: {
-        "key": { "S" : key },
+        "id": { "S" : id },
       },
     });
     const output = await dbClient.send(command);
@@ -126,11 +130,11 @@ export const handler = async function (event) {
 
   if (result.length == 3) {
     console.log("saveData", "3 params");
-    await saveData(key, result[0], result[1], result[2]);
-    await loadData(key);
+    const id = await saveData(key, result[0], result[1], result[2]);
+    await loadData(id);
   } else {
     console.log("saveData", "0 params");
-    await saveData(key, 0, 0, 0);
-    await loadData(key);
+    const id = await saveData(key, 0, 0, 0);
+    await loadData(id);
   }   
 };
