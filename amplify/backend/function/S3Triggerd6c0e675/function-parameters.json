@@ -6,6 +6,19 @@
         "read",
         "update",
         "delete"
+      ],
+      "MeasData:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "api": {
+      "amplifycamerauploade": [
+        "Query",
+        "Mutation",
+        "Subscription"
       ]
     }
   }

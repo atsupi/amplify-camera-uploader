@@ -1,4 +1,30 @@
 {
+  "api": {
+    "amplifycamerauploade": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "amplifycamerauploadef7ad621d"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authamplifycamerauploadef7ad621d"
+            }
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
   "auth": {
     "amplifycamerauploadef7ad621d": {
       "customAuth": false,
@@ -37,6 +63,13 @@
           ],
           "category": "storage",
           "resourceName": "dbrekognition20230724dev"
+        },
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput"
+          ],
+          "category": "api",
+          "resourceName": "amplifycamerauploade"
         }
       ],
       "providerPlugin": "awscloudformation",

@@ -22,6 +22,14 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "apiamplifycamerauploadeGraphQLAPIIdOutput": {
+      "Type": "String",
+      "Default": "apiamplifycamerauploadeGraphQLAPIIdOutput"
+    },
+    "apiamplifycamerauploadeGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apiamplifycamerauploadeGraphQLAPIEndpointOutput"
     }
   },
   "Conditions": {
@@ -77,6 +85,38 @@
             },
             "STORAGE_DBREKOGNITION20230724DEV_STREAMARN": {
               "Ref": "storagedbrekognition20230724devStreamArn"
+            },
+            "API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME": {
+              "Fn::ImportValue": {
+                "Fn::Sub": "${apiamplifycamerauploadeGraphQLAPIIdOutput}:GetAtt:MeasDataTable:Name"
+              }
+            },
+            "API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_ARN": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:aws:dynamodb:",
+                  {
+                    "Ref": "AWS::Region"
+                  },
+                  ":",
+                  {
+                    "Ref": "AWS::AccountId"
+                  },
+                  ":table/",
+                  {
+                    "Fn::ImportValue": {
+                      "Fn::Sub": "${apiamplifycamerauploadeGraphQLAPIIdOutput}:GetAtt:MeasDataTable:Name"
+                    }
+                  }
+                ]
+              ]
+            },
+            "API_AMPLIFYCAMERAUPLOADE_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apiamplifycamerauploadeGraphQLAPIIdOutput"
+            },
+            "API_AMPLIFYCAMERAUPLOADE_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apiamplifycamerauploadeGraphQLAPIEndpointOutput"
             }
           }
         },
@@ -201,15 +241,19 @@
                 "dynamodb:Put*",
                 "dynamodb:Create*",
                 "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
                 "dynamodb:Get*",
                 "dynamodb:BatchGetItem",
                 "dynamodb:List*",
                 "dynamodb:Describe*",
                 "dynamodb:Scan",
                 "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
                 "dynamodb:Update*",
                 "dynamodb:RestoreTable*",
-                "dynamodb:Delete*"
+                "dynamodb:PartiQLUpdate",
+                "dynamodb:Delete*",
+                "dynamodb:PartiQLDelete"
               ],
               "Resource": [
                 {
@@ -223,6 +267,140 @@
                         "Ref": "storagedbrekognition20230724devArn"
                       },
                       "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:PartiQLSelect",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate",
+                "dynamodb:Delete*",
+                "dynamodb:PartiQLDelete"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apiamplifycamerauploadeGraphQLAPIIdOutput}:GetAtt:MeasDataTable:Name"
+                        }
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:dynamodb:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":table/",
+                      {
+                        "Fn::ImportValue": {
+                          "Fn::Sub": "${apiamplifycamerauploadeGraphQLAPIIdOutput}:GetAtt:MeasDataTable:Name"
+                        }
+                      },
+                      "/index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiamplifycamerauploadeGraphQLAPIIdOutput"
+                      },
+                      "/types/Query/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiamplifycamerauploadeGraphQLAPIIdOutput"
+                      },
+                      "/types/Mutation/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiamplifycamerauploadeGraphQLAPIIdOutput"
+                      },
+                      "/types/Subscription/*"
                     ]
                   ]
                 }

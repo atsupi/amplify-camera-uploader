@@ -1,4 +1,8 @@
 /* Amplify Params - DO NOT EDIT
+	API_AMPLIFYCAMERAUPLOADE_GRAPHQLAPIENDPOINTOUTPUT
+	API_AMPLIFYCAMERAUPLOADE_GRAPHQLAPIIDOUTPUT
+	API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_ARN
+	API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME
 	ENV
 	REGION
 	STORAGE_DBREKOGNITION20230724DEV_ARN
@@ -56,10 +60,10 @@ const dbClient = new DynamoDBClient(config);
 const documentClient = DynamoDBDocumentClient.from(dbClient);
 
 const saveData = async (key, param1, param2, param3) => {
-  console.log("saveData", process.env.STORAGE_DBREKOGNITION20230724DEV_NAME);
+  console.log("saveData", process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME);
   try {
     const command = new PutItemCommand({
-      TableName: process.env.STORAGE_DBREKOGNITION20230724DEV_NAME,
+      TableName: process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME,
       Item: {
         "key": { "S" : key },
         "param1": { "S" : param1 },
@@ -78,10 +82,10 @@ const saveData = async (key, param1, param2, param3) => {
 }
 
 const loadData = async (key) => {
-  console.log("loadData", process.env.STORAGE_DBREKOGNITION20230724DEV_NAME);
+  console.log("loadData", process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME);
   try {
     const command = new GetItemCommand({
-      TableName: process.env.STORAGE_DBREKOGNITION20230724DEV_NAME,
+      TableName: process.env.API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME,
       Key: {
         "key": { "S" : key },
       },
@@ -122,11 +126,11 @@ export const handler = async function (event) {
 
   if (result.length == 3) {
     console.log("saveData", "3 params");
-    saveData(key, result[0], result[1], result[2]);
-    loadData(key);
+    await saveData(key, result[0], result[1], result[2]);
+    await loadData(key);
   } else {
     console.log("saveData", "0 params");
-    saveData(key, 0, 0, 0);
-    loadData(key);
+    await saveData(key, 0, 0, 0);
+    await loadData(key);
   }   
 };
