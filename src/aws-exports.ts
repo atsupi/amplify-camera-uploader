@@ -32,7 +32,10 @@ const awsmobile = {
             "tableName": "dbrekognition20230724-dev",
             "region": "ap-northeast-1"
         }
-    ]
+    ],
+    "aws_appsync_graphqlEndpoint": "https://wbqwsmv7ebe4df5infe5dem5v4.appsync-api.ap-northeast-1.amazonaws.com/graphql",
+    "aws_appsync_region": "ap-northeast-1",
+    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"
 };
 
 

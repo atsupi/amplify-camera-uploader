@@ -1,0 +1,8 @@
+.NavBarDiv {
+    display: flex;
+    background-color: darkblue;
+}
+
+.NavBarDiv .ul {
+    display: none
+}
