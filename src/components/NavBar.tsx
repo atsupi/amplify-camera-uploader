@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar() {
-  const [isActive, setIsActive] = useState(true);
-
   return (
     <div className="NavBarDiv">
       <ul>

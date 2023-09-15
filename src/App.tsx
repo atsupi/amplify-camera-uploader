@@ -5,29 +5,8 @@ import NavBar from "./components/NavBar";
 import UploaderPage from "./pages/UploaderPage";
 import ListPage from "./pages/ListPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { API } from "aws-amplify";
-import { listMeasData } from "./graphql/queries";
-import { GraphQLResult } from "@aws-amplify/api-graphql";
-
-class listMeasDataResponse {
-  "data": any;
-}
 
 function App() {
-  const [measTable, setMeasTable] = useState([]);
-
-  async function fetchMeasData() {
-    const apiData: GraphQLResult<any> = await API.graphql({
-      query: listMeasData,
-    });
-    setMeasTable(apiData.data.listMeasData.items);
-  }
-
-  useEffect(() => {
-    fetchMeasData();
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -45,7 +24,7 @@ function App() {
                 <NavBar />
                 <div className="MainContent">
                   <Routes>
-                    <Route index path="/" element={<ListPage items={measTable}/>} />
+                    <Route index path="/" element={<ListPage items={[]}/>} />
                     <Route path="/upload" element={<UploaderPage />} />
                   </Routes>
                 </div>
