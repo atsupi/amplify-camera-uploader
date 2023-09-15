@@ -9,9 +9,11 @@ export async function getPresignedUrl(key: any) {
   
   
 
-const removeItemFromTable = (id: string) => {
+const removeItemFromTable = (id: string, cb: () => void) => {
     console.log("removeItemFromTable", id);
-    removeItemFromDB(id);
+    removeItemFromDB(id).then(() => {
+        cb();
+    });
 }
 
 async function removeItemFromDB(id: string) {
@@ -19,6 +21,7 @@ async function removeItemFromDB(id: string) {
       const res = await API.graphql(
         graphqlOperation(deleteMeasData, { input: { id: id} })
       );
+      console.log(res);
     } catch (event) {
       console.log(event);
     }

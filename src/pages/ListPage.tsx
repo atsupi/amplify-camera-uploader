@@ -25,8 +25,9 @@ export default function ListPage(props: ListPageProps) {
   }, []);
 
   const onDelete = (item: MeasDataParams) => {
-    removeItemFromTable(item.id);
-    fetchMeasData();
+    removeItemFromTable(item.id, () => {
+        fetchMeasData();
+    });
   };
 
   return (
