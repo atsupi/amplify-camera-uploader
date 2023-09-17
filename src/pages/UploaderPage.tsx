@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Storage } from 'aws-amplify';
+import "./UploaderPage.css";
 
 export default function UploaderPage() {
     const [percentage, setPercentage] = useState("0%");
+    const isMobile = window.navigator.userAgent.toLowerCase().includes("mobile");
     const ChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
       console.log(event);
       console.log(event.target.value);
@@ -30,8 +32,12 @@ export default function UploaderPage() {
 
     return (
     <>
-            <div className="upload">
-              <input id="upload" type="file" name="image" accept="image/*" capture onChange={ChangeInput}></input>
+            <div className={isMobile? "uploadCameraDiv enabled": "uploadCameraDiv disabled"}>
+              <input id="uploadCamera" type="file" name="image" accept="image/*" capture onChange={ChangeInput} disabled={!isMobile}></input>
+              <p>{percentage}</p>
+            </div>
+            <div className="uploadFileDiv">
+              <input id="uploadFile" type="file" name="image" accept="image/*" onChange={ChangeInput}></input>
               <p>{percentage}</p>
             </div>
     </>

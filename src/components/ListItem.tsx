@@ -25,7 +25,8 @@ export default function ListItem(props: ListItemProps) {
   };
 
   const timeTick: number = Math.floor((item.item.date % (24 * 3600000)) / 1000);
-  const hours = ("0" + Math.floor(timeTick / 3600)).slice(-2);
+  const numHours = (Math.floor(timeTick / 3600) + 9) % 24;
+  const hours = ("0" + numHours).slice(-2);
   const minutes = ("0" + Math.floor((timeTick % 3600) / 60)).slice(-2);
   const seconds = ("0" + Math.floor(timeTick % 60)).slice(-2);
   const time: string = hours + ":" + minutes + ":" + seconds;

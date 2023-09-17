@@ -1,0 +1,19 @@
+.uploaderFile {
+    border-radius: 5px;
+}
+
+.uploadCameraDiv {
+    border-radius: 5px;
+}
+
+.uploadCameraDiv.disabled {
+    background-color: lightslategrey;
+    border-radius: 5px;
+    content-visibility: inherit;
+}
+
+.uploadCameraDiv.enabled {
+    background-color: rgb(124, 53, 28);
+    border-radius: 5px;
+    content-visibility: visible;
+}
