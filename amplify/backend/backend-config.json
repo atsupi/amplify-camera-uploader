@@ -76,6 +76,7 @@
       "service": "Lambda"
     }
   },
+  "hosting": {},
   "parameters": {
     "AMPLIFY_function_S3Triggerd6c0e675_deploymentBucketName": {
       "usedBy": [

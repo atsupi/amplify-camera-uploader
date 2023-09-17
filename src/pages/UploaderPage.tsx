@@ -8,8 +8,8 @@ export default function UploaderPage() {
       console.log(event.target.value);
       if (event.target.files) {
         let filename = event.target.files[0].name;
-        if (filename === "image.jpg") {
-          const id = new Date().getTime().toString();
+        if (filename === "image.jpg" || filename.length > 17) {
+          const id = new Date().getTime().toString().slice(13);
           filename = "image" + id + ".jpg";
         }
         console.log("filename", filename);
