@@ -1,23 +1,23 @@
-.uploaderFile {
+.uploaderContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.uploadFileDiv {
     border-radius: 5px;
+    margin: 5px 5px 5px 5px;
 }
 
 .uploadCameraDiv {
     border-radius: 5px;
-}
-
-.uploadCameraDiv.disabled {
-    background-color: lightslategrey;
-    border-radius: 5px;
-    content-visibility: inherit;
-}
-
-.uploadCameraDiv.enabled {
-    background-color: rgb(124, 53, 28);
-    border-radius: 5px;
-    content-visibility: visible;
+    margin: 5px 5px 5px 5px;
 }
 
 #uploadCamera {
+    display: none;
+}
+
+#uploadFile {
     display: none;
 }
