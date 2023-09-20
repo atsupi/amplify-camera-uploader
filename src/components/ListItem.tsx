@@ -1,3 +1,4 @@
+import { getParseTreeNode } from "typescript";
 import { ListItemParams, MeasDataParams } from "../types";
 
 export class ListItemProps {
@@ -38,10 +39,20 @@ export default function ListItem(props: ListItemProps) {
     props.onDelete(props.item);
   };
 
+  const getColorCode = (label: string) => {
+    if (label === "R") return "#ff4000";
+    if (label === "G") return "#40ff00";
+    if (label === "B") return "#8060ff";
+    if (label === "W") return "white";
+    return "white";
+  };
+
   return (
     <>
       <tr>
-        <td>{item.metadata.colorRef}</td>
+        <td style={{ backgroundColor: getColorCode(item.metadata.colorRef) }}>
+          {item.metadata.colorRef}
+        </td>
         <td>{shortKey}</td>
         <td>{item.item.param2}</td>
         <td>{item.item.param3}</td>

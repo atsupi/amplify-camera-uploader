@@ -10,29 +10,31 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <p>Camera Uploader</p>
       </header>
-      <Authenticator>
-        {({ signOut, user }) => (
-          <>
-            <p>Hello, {user?.username}</p>
-            <Button onClick={signOut}>Sign Out</Button>
-            <main className="Main">
-              <BrowserRouter>
-                <NavBar />
-                <div className="MainContent">
-                  <Routes>
-                    <Route index path="/" element={<ListPage items={[]}/>} />
-                    <Route path="/upload" element={<UploaderPage />} />
-                  </Routes>
-                </div>
-              </BrowserRouter>
-            </main>
-          </>
-        )}
-      </Authenticator>
+      <main className="App-main">
+        <Authenticator>
+          {({ signOut, user }) => (
+            <>
+              <div className="UserContent">
+                <p>Hello, {user?.username}</p>
+                <Button onClick={signOut}>Sign Out</Button>
+              </div>
+              <main className="Main">
+                <BrowserRouter>
+                  <NavBar />
+                  <div className="MainContent">
+                    <Routes>
+                      <Route index path="/" element={<ListPage items={[]} />} />
+                      <Route path="/upload" element={<UploaderPage />} />
+                    </Routes>
+                  </div>
+                </BrowserRouter>
+              </main>
+            </>
+          )}
+        </Authenticator>
+      </main>
     </div>
   );
 }

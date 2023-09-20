@@ -5,6 +5,7 @@ import { listMeasData } from "../graphql/queries";
 import { GraphQLResult } from "@aws-amplify/api-graphql";
 import { MeasDataParams } from "../types";
 import { removeItemFromTable } from "../utils/utils";
+import "./ListPage.css";
 
 export interface ListPageProps {
   items: Array<any>;
