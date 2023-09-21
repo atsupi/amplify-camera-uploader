@@ -5,18 +5,6 @@
     "env": {
       "Type": "String"
     },
-    "storagedbrekognition20230724devName": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724devName"
-    },
-    "storagedbrekognition20230724devArn": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724devArn"
-    },
-    "storagedbrekognition20230724devStreamArn": {
-      "Type": "String",
-      "Default": "storagedbrekognition20230724devStreamArn"
-    },
     "deploymentBucketName": {
       "Type": "String"
     },
@@ -76,15 +64,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "STORAGE_DBREKOGNITION20230724DEV_NAME": {
-              "Ref": "storagedbrekognition20230724devName"
-            },
-            "STORAGE_DBREKOGNITION20230724DEV_ARN": {
-              "Ref": "storagedbrekognition20230724devArn"
-            },
-            "STORAGE_DBREKOGNITION20230724DEV_STREAMARN": {
-              "Ref": "storagedbrekognition20230724devStreamArn"
             },
             "API_AMPLIFYCAMERAUPLOADE_MEASDATATABLE_NAME": {
               "Fn::ImportValue": {
@@ -235,43 +214,6 @@
         "PolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:PartiQLInsert",
-                "dynamodb:Get*",
-                "dynamodb:BatchGetItem",
-                "dynamodb:List*",
-                "dynamodb:Describe*",
-                "dynamodb:Scan",
-                "dynamodb:Query",
-                "dynamodb:PartiQLSelect",
-                "dynamodb:Update*",
-                "dynamodb:RestoreTable*",
-                "dynamodb:PartiQLUpdate",
-                "dynamodb:Delete*",
-                "dynamodb:PartiQLDelete"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storagedbrekognition20230724devArn"
-                },
-                {
-                  "Fn::Join": [
-                    "/",
-                    [
-                      {
-                        "Ref": "storagedbrekognition20230724devArn"
-                      },
-                      "index/*"
-                    ]
-                  ]
-                }
-              ]
-            },
             {
               "Effect": "Allow",
               "Action": [

@@ -16,20 +16,12 @@
         "amplifycamerauploadef7ad621d": {}
       },
       "storage": {
-        "dbrekognition20230724dev": {
-          "tableName": "dbrekognition20230724-dev",
-          "region": "ap-northeast-1",
-          "arn": "arn:aws:dynamodb:ap-northeast-1:074682543290:table/dbrekognition20230724-dev",
-          "streamArn": "arn:aws:dynamodb:ap-northeast-1:074682543290:table/dbrekognition20230724-dev/stream/2023-07-24T14:12:04.029",
-          "partitionKeyName": "key",
-          "partitionKeyType": "S"
-        },
         "cameraimage20230721": {}
       },
       "function": {
         "S3Triggerd6c0e675": {
           "deploymentBucketName": "amplify-amplifycamerauploade-dev-234755-deployment",
-          "s3Key": "amplify-builds/S3Triggerd6c0e675-666d6d512f637a38744b-build.zip"
+          "s3Key": "amplify-builds/S3Triggerd6c0e675-4c545672714c304c3378-build.zip"
         }
       },
       "api": {

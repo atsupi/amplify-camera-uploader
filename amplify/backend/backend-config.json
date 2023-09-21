@@ -57,15 +57,6 @@
       "dependsOn": [
         {
           "attributes": [
-            "Name",
-            "Arn",
-            "StreamArn"
-          ],
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        },
-        {
-          "attributes": [
             "GraphQLAPIIdOutput"
           ],
           "category": "api",
@@ -93,54 +84,6 @@
           "resourceName": "S3Triggerd6c0e675"
         }
       ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_streamArn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
-    },
-    "AMPLIFY_storage_dbrekognition20230724dev_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "dbrekognition20230724dev"
-        }
-      ]
     }
   },
   "storage": {
@@ -158,12 +101,6 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "S3"
-    },
-    "dbrekognition20230724dev": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
     }
   }
 }
