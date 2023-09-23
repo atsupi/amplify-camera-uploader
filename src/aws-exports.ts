@@ -26,13 +26,6 @@ const awsmobile = {
     ],
     "aws_user_files_s3_bucket": "cameraimage20230721234755-dev",
     "aws_user_files_s3_bucket_region": "ap-northeast-1",
-    "aws_dynamodb_all_tables_region": "ap-northeast-1",
-    "aws_dynamodb_table_schemas": [
-        {
-            "tableName": "dbrekognition20230724-dev",
-            "region": "ap-northeast-1"
-        }
-    ],
     "aws_appsync_graphqlEndpoint": "https://wbqwsmv7ebe4df5infe5dem5v4.appsync-api.ap-northeast-1.amazonaws.com/graphql",
     "aws_appsync_region": "ap-northeast-1",
     "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"

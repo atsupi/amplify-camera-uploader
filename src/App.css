@@ -25,13 +25,11 @@
   display: flex;
   background-color: orange;
   padding: 0px 24px 0px 24px;
+  justify-content: space-between;
 }
 
 .UserContent button {
-  position: absolute;
-  object-position: right;
-  margin-top: 12px;
-  margin-left: 70vh;
+  margin: 12px 0px;
   padding: 4px;
   background-color: tan;
 }
