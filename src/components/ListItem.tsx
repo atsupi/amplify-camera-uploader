@@ -49,7 +49,7 @@ export default function ListItem(props: ListItemProps) {
 
   return (
     <>
-      <tr>
+      <tr id={`Predict_${item.metadata.colorRef}`}>
         <td style={{ backgroundColor: getColorCode(item.metadata.colorRef) }}>
           {item.metadata.colorRef}
         </td>
